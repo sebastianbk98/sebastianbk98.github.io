@@ -8,8 +8,11 @@ const frameworksListHTML = frameworks
     class="framework-image"
     height="64px"
     width="64px"
-    src="${framework}"
-    style="transition-delay: ${index * 200}ms;"
+    src="${framework.src}"
+    data-bs-toggle="tooltip" 
+    data-bs-title="${framework.title}"
+    data-bs-placement="bottom"
+    style="transition-delay: ${index * 100}ms;"
   />`
   )
   .join("");
@@ -32,24 +35,31 @@ const projectsListHTML = projects
             height="32px"
             width="32px"
             src="${
-              framework === "bootstrap"
+              framework.toLowerCase() === "bootstrap"
                 ? "assets/icon/bootstrap.svg"
-                : framework === "express"
+                : framework.toLowerCase() === "express"
                 ? "assets/icon/express.svg"
-                : framework === "laravel"
+                : framework.toLowerCase() === "laravel"
                 ? "assets/icon/laravel.svg"
-                : framework === "nodejs"
+                : framework.toLowerCase() === "nodejs"
                 ? "assets/icon/nodejs.svg"
-                : framework === "react"
+                : framework.toLowerCase() === "react"
                 ? "assets/icon/react.svg"
-                : framework === "ts"
+                : framework.toLowerCase() === "django"
+                ? "assets/icon/django.svg"
+                : framework.toLowerCase() === "python"
+                ? "assets/icon/python.svg"
+                : framework.toLowerCase() === "typescript"
                 ? "assets/icon/ts.svg"
-                : framework === "mongodb"
+                : framework.toLowerCase() === "mongodb"
                 ? "assets/icon/mongodb.svg"
-                : framework === "css"
+                : framework.toLowerCase() === "css"
                 ? "assets/icon/css.svg"
                 : "assets/icon/html.svg"
             }"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title="${framework}"
           />
         `;
         })
@@ -113,3 +123,10 @@ for (let i = 0; i < projectsListElement.length; i++) {
   const el = projectsListElement[i];
   observeProject.observe(el);
 }
+
+const tooltipTriggerList = document.querySelectorAll(
+  '[data-bs-toggle="tooltip"]'
+);
+const tooltipList = [...tooltipTriggerList].map(
+  (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+);
