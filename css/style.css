@@ -65,6 +65,7 @@ section {
 }
 
 #about {
+  background-color: black;
   background-image: url("../assets/bg.webp");
   background-size: cover;
   background-repeat: no-repeat;

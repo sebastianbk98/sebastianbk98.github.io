@@ -13,6 +13,7 @@ const frameworksListHTML = frameworks
     data-bs-title="${framework.title}"
     data-bs-placement="bottom"
     style="transition-delay: ${index * 100}ms;"
+    loading="lazy"
   />`
   )
   .join("");
@@ -57,6 +58,7 @@ const projectsListHTML = projects
                 ? "assets/icon/css.svg"
                 : "assets/icon/html.svg"
             }"
+            loading="lazy"
             data-bs-toggle="tooltip"
             data-bs-placement="bottom"
             data-bs-title="${framework}"
@@ -70,6 +72,7 @@ const projectsListHTML = projects
           class="project-image mx-auto"
           src="${project.img}"
           alt="${project.title}"
+          loading="lazy"
         />
       </div>
     </div>
