@@ -1,10 +1,25 @@
+const frameworksList = document.getElementsByClassName("framework")[0];
 const projectsList = document.getElementById("projects-list");
 
-let projectsListHTML = projects
+const frameworksListHTML = frameworks
+  .map(
+    (framework, index) => `
+  <img
+    class="framework-image"
+    height="64px"
+    width="64px"
+    src="${framework}"
+    style="transition-delay: ${index * 200}ms;"
+  />`
+  )
+  .join("");
+frameworksList.innerHTML = frameworksListHTML;
+
+const projectsListHTML = projects
   .map((project) => {
     return `
   <a href="${project.link}" class="td-none">
-    <div class="project row align-items-center">
+    <div class="row align-items-center project">
       <div class="col-md-4 project-title">
         ${project.title}
       </div> 
@@ -54,3 +69,47 @@ let projectsListHTML = projects
   .join("");
 
 projectsList.innerHTML = projectsListHTML;
+
+const frameworksListElement =
+  document.getElementsByClassName("framework-image");
+const projectsListElement = document.getElementsByClassName("project");
+const contactsListElement = document.getElementsByClassName("card");
+
+const observeFramework = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle(
+        "animated-translate-y",
+        entry.isIntersecting
+      );
+    });
+  },
+  { threshold: 1 }
+);
+
+for (let i = 0; i < frameworksListElement.length; i++) {
+  const el = frameworksListElement[i];
+  observeFramework.observe(el);
+}
+
+for (let i = 0; i < contactsListElement.length; i++) {
+  const el = contactsListElement[i];
+  observeFramework.observe(el);
+}
+
+const observeProject = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle(
+        "animated-translate-x",
+        entry.isIntersecting
+      );
+    });
+  },
+  { threshold: 0 }
+);
+
+for (let i = 0; i < projectsListElement.length; i++) {
+  const el = projectsListElement[i];
+  observeProject.observe(el);
+}
