@@ -88,17 +88,11 @@ const frameworksListElement =
 const projectsListElement = document.getElementsByClassName("project");
 const contactsListElement = document.getElementsByClassName("card");
 
-const observeFramework = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      entry.target.classList.toggle(
-        "animated-translate-y",
-        entry.isIntersecting
-      );
-    });
-  },
-  { threshold: 1 }
-);
+const observeFramework = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    entry.target.classList.toggle("animated-translate-y", entry.isIntersecting);
+  });
+});
 
 for (let i = 0; i < frameworksListElement.length; i++) {
   const el = frameworksListElement[i];
@@ -110,17 +104,11 @@ for (let i = 0; i < contactsListElement.length; i++) {
   observeFramework.observe(el);
 }
 
-const observeProject = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      entry.target.classList.toggle(
-        "animated-translate-x",
-        entry.isIntersecting
-      );
-    });
-  },
-  { threshold: 0 }
-);
+const observeProject = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    entry.target.classList.toggle("animated-translate-x", entry.isIntersecting);
+  });
+});
 
 for (let i = 0; i < projectsListElement.length; i++) {
   const el = projectsListElement[i];

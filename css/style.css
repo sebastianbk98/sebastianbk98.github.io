@@ -27,6 +27,7 @@ h1 {
 
 .framework-image {
   padding: 8px;
+  margin: 8px;
   background-color: white;
   border-radius: 16px;
   opacity: 0;
