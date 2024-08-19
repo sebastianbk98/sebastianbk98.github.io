@@ -9,7 +9,7 @@ const projects = [
     title: "Sentiment Analysis (LSTM)",
     frameworks: ["Django", "Python", "Bootstrap"],
     img: "assets/projects/sa-lstm.png",
-    link: "https://github.com/sebastianbk98/django-skripsi",
+    link: "https://sentimentdigitalkorlantas.pythonanywhere.com/",
   },
   {
     title: "Pomodoro Timer",
