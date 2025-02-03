@@ -1,9 +1,9 @@
 const projects = [
   {
-    title: "E-Commerce (ongoing)",
+    title: "E-Commerce",
     frameworks: ["MongoDB", "Express", "React", "NodeJS", "TypeScript"],
     img: "assets/projects/ecommerce.png",
-    link: "https://github.com/sebastianbk98/ts-mern-ecommerce",
+    link: "https://fe-ts-mern-ecommerce.vercel.app/",
   },
   {
     title: "Sentiment Analysis (LSTM)",
